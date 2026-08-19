@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OpTrack — MESA Internships &amp; Scholarships</title>
+<title>MESA Internships &amp; Scholarships</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -227,7 +227,6 @@
     <img class="hero-logo hero-logo-left" src="assets/MESA_logo.png" alt="Mathematics, Engineering, Science Achievement (MESA) Program logo">
 
     <div class="hero-content">
-      <span class="pill">Live Opportunity Board</span>
       <h1 class="title">Internships &amp; Scholarships</h1>
       <p class="subtitle">A running list of internships and scholarships maintained by MESA — filter by type, search by name, and click any listing to apply.</p>
     </div>
@@ -266,7 +265,7 @@
   </div>
 
   <footer>
-    <span>Maintained by MESA student assistants · Mission College</span>
+    <span>Maintained by MESA Program · Mission College</span>
   </footer>
 
 </div>
@@ -325,7 +324,7 @@ function effectiveDate(o){
 }
 function statusInfo(o){
   const b = bucketOf(o);
-  if (b === 'upcoming') return { cls:'upcoming', label:'Upcoming — Verify' };
+  if (b === 'upcoming') return { cls:'upcoming', label:'Upcoming — Need to Verify' };
   if (o.Status === 'Open') return { cls:'open', label:'Open' };
   return { cls:'closed', label:'Closed' };
 }
