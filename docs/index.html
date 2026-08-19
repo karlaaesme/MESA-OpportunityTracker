@@ -37,6 +37,25 @@
   a{color:inherit;}
   .wrap{max-width:960px; margin:0 auto; padding:28px 20px 80px;}
 
+  .card{
+    background:#fff;
+    border:1px solid var(--divider);
+    border-radius:12px;
+    padding:16px 20px;
+    margin-bottom:16px;
+  }
+  #logos{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:32px;
+    flex-wrap:wrap;
+  }
+  #logos img{
+    max-height:56px;
+    width:auto;
+    object-fit:contain;
+  }
   header.hero{
     background:var(--navy);
     border-radius:14px;
@@ -207,6 +226,12 @@
 </head>
 <body>
 <div class="wrap">
+  <div class="card">
+    <div id="logos">
+      <img src="assets/MESA_logo.png" alt="Mathematics, Engineering, Science Achievement (MESA) Program logo">
+      <img src="assets/MC_Logo_4C.jpg" alt="Mission College - Santa Clara logo">
+    </div>
+  </div>
 
   <header class="hero">
     <span class="pill">Live Opportunity Board</span>
