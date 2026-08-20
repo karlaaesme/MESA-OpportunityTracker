@@ -205,18 +205,14 @@
   footer a{color:var(--navy-2); text-decoration:underline; font-weight:600;}
 
   @media (max-width:640px){
-    header.hero{ flex-direction:column; }
-    .hero-content{ order:2; }
-    .hero-logo-left{ order:1; }
-    .hero-logo-right{ order:1; }
-    .board-cols{display:none;}
-    .board-row{
-      grid-template-columns:1fr;
-      gap:4px;
-      padding:16px 20px;
-    }
-    .opp-name{white-space:normal;}
-    .opp-tminus{text-align:left;}
+      header.hero{
+    flex-wrap:wrap;
+    justify-content:center;
+    row-gap:14px;
+  }
+  .hero-content{ order:2; flex-basis:100%; }
+  .hero-logo-left{ order:1; }
+  .hero-logo-right{ order:1; }
   }
 </style>
 </head>
