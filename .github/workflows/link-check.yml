@@ -1,0 +1,41 @@
+name: Check opportunity links
+
+on:
+  schedule:
+    # Runs every day at 13:00 UTC (6am Pacific / 9am Eastern)
+    - cron: '0 13 * * *'
+  workflow_dispatch: {}   # lets you trigger it manually from the Actions tab
+
+permissions:
+  contents: write   # needed so the workflow can commit updated flags back to data.csv
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Compile
+        run: javac -d out src/*.java
+
+      - name: Run LinkChecker
+        run: java -cp out LinkChecker docs/data.csv
+
+      - name: Commit changes if any opportunities were flagged
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- docs/data.csv; then
+            echo "No changes to commit."
+          else
+            git add docs/data.csv
+            git commit -m "Automated link check: flag opportunities for review"
+            git push
+          fi
