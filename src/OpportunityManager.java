@@ -7,7 +7,6 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-//manages the heavy work
 public class OpportunityManager {
     HashTableEntry hashTable = new HashTableEntry(11);
 
@@ -43,7 +42,11 @@ public class OpportunityManager {
                 String type = cols[2].trim();
                 String link = cols[3].trim();
                 String status = cols[4].trim();
-                LocalDate deadline = LocalDate.parse(cols[5].trim());
+                String dueDateStr = cols[5].trim();
+                // Some entries (closed, or rolling-admission with no fixed deadline) leave
+                // DueDate blank. Treat that as "far future" instead of crashing, so it's
+                // never mistaken for expired.
+                LocalDate deadline = dueDateStr.isEmpty() ? LocalDate.MAX : LocalDate.parse(dueDateStr);
                 String comments = cols[6].trim();
                 boolean flagged = Boolean.parseBoolean(cols[7].trim());
                 String flagNote = cols[8].trim();
