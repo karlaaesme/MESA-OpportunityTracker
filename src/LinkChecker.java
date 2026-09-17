@@ -33,7 +33,7 @@ public class LinkChecker {
             "reopens|reopen|opens again|opening in|check back|next cycle|will reopen|" +
             "opens on|opens for|application cycle opens|opens in|opening soon|coming soon|" +
             "application period|application window|application dates|applications open|" +
-            "accepting applications|apply beginning|applications will open|applications begin",
+            "accepting applications|is now open|apply beginning|applications will open|applications begin",
             Pattern.CASE_INSENSITIVE);
 
     private static final Pattern FULL_DATE = Pattern.compile(
